@@ -20,6 +20,7 @@ namespace TechJobsOO
             Value = value;
         }
 
+        // why is the Equals override using competency???
         public override bool Equals(object obj)
         {
             return obj is CoreCompetency competency &&
