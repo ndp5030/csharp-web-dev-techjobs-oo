@@ -31,13 +31,17 @@ namespace TechJobsTest
         [TestMethod]
         public void TestJobsForEquality()
         {
-            TechJobsOO.Employer employer1 = new TechJobsOO.Employer("ACME");
-            TechJobsOO.Location location1 = new TechJobsOO.Location("Desert");
-            TechJobsOO.PositionType jobType1 = new TechJobsOO.PositionType("Quality Control");
-            TechJobsOO.CoreCompetency competency1 = new TechJobsOO.CoreCompetency("Persistence");
-            TechJobsOO.Job job3 = new TechJobsOO.Job("Product Tester", employer1, location1, jobType1, competency1);
+            //Which is better? The first one is not DRY but the second creates another new instance for each class and we're supposed to be using the same
 
-            TechJobsOO.Job job4 = new TechJobsOO.Job("Product Tester", employer1, location1, jobType1, competency1);
+            //TechJobsOO.Employer employer1 = new TechJobsOO.Employer("ACME");
+            //TechJobsOO.Location location1 = new TechJobsOO.Location("Desert");
+            //TechJobsOO.PositionType jobType1 = new TechJobsOO.PositionType("Quality Control");
+            //TechJobsOO.CoreCompetency competency1 = new TechJobsOO.CoreCompetency("Persistence");
+            //TechJobsOO.Job job3 = new TechJobsOO.Job("Product Tester", employer1, location1, jobType1, competency1);
+            //TechJobsOO.Job job4 = new TechJobsOO.Job("Product Tester", employer1, location1, jobType1, competency1);
+
+            TechJobsOO.Job job3 = new TechJobsOO.Job("Product Tester", new TechJobsOO.Employer("ACME"), new TechJobsOO.Location("Desert"), new TechJobsOO.PositionType("Quality Control"), new TechJobsOO.CoreCompetency("Persistence"));
+            TechJobsOO.Job job4 = new TechJobsOO.Job("Product Tester", new TechJobsOO.Employer("ACME"), new TechJobsOO.Location("Desert"), new TechJobsOO.PositionType("Quality Control"), new TechJobsOO.CoreCompetency("Persistence"));
 
             Assert.IsFalse(job3.Equals(job4));
 
