@@ -43,5 +43,17 @@ namespace TechJobsTest
 
             // Assert.AreNotEqual(job3, job4);
         }
+
+        [TestMethod]
+        public void TestJobsToStringMethod()
+        {
+            TechJobsOO.Employer employer1 = new TechJobsOO.Employer("ACME");
+            TechJobsOO.Location location1 = new TechJobsOO.Location("Desert");
+            TechJobsOO.PositionType jobType1 = new TechJobsOO.PositionType("Quality Control");
+            TechJobsOO.CoreCompetency competency1 = new TechJobsOO.CoreCompetency("Persistence");
+            TechJobsOO.Job job3 = new TechJobsOO.Job("Product Tester", employer1, location1, jobType1, competency1);
+
+            Assert.IsTrue(job3.ToString().Equals($"ID: {job3.Id} \nName: {job3.Name} \nEmployer: {job3.EmployerName} \nLocation: {job3.EmployerLocation} \nPosition Type: {job3.JobType} \nCore Competency: {job3.JobCoreCompetency}"));
+        }
     }
 }
